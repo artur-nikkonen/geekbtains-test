@@ -65,7 +65,7 @@ public class SearchTests extends GeekBrainsBaseTests {
     void closePopup() {
         try {
             //не удалось найти только видимую кнопку, так как в xpath not(contains(@style, 'display:none'))
-            //работает для вычисляемых стилей. Надо подумать.
+            //не работает для вычисляемых стилей. Надо подумать.
 
             //Ждем пока появятся 2 картинки кнопок закрывания окна
             String closePopupButtonsSvgPath = "button > svg.icon-popup-close-button";
