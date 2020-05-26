@@ -65,7 +65,8 @@ public class SearchTests extends GeekBrainsBaseTests {
         searchInput.sendKeys(text);
     }
 
-    void closePopup() {
+
+    protected void closePopup() {
         try {
             //Ждем пока появятся 2 картинки кнопок закрывания окна
             String closePopupButtonsSvgPath = "button > svg.icon-popup-close-button";

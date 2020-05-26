@@ -3,10 +3,12 @@ package ru.geekbrains.main.site.at;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -36,7 +38,7 @@ public class GeekBrainsBaseTests {
     }
 
 
-    public String getUrl(String path) {
+    public static String getUrl(String path) {
         return BASE_URL + path;
     }
 

@@ -4,6 +4,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import ru.geekbrains.main.site.at.selectors.Footer;
 import ru.geekbrains.main.site.at.selectors.Header;
 
@@ -25,13 +26,30 @@ public class NavigationTests extends GeekBrainsBaseTests {
         );
     }
 
+    //Переделал тест, чтобы он был похож на тот, который задан в презентации к 3 уроку
     @ParameterizedTest
     @MethodSource("getPathsAndTitles")
-    public void checkAllPaths(String path, String title) {
-        driver.get(getUrl(path));
+    public void checkAllButtons(String path, String title) {
+
+        //Переходим на начальную страницу
+        driver.get(getUrl("/career"));
+
+        //Проверяем кнопку и нажади на нее
+        checkButtonAndClick(path, title);
+
+        //Проверяем загруженную страницу
         checkTitle(title);
         checkHeader();
         checkFooter();
+    }
+
+    private void checkButtonAndClick(String path, String title) {
+        String buttonSelector = "a.gb-left-menu__nav-item[href='" + path + "']";
+        WebElement button = driver.findElement(By.cssSelector(buttonSelector));
+
+        assertThat(button.getText(), equalToIgnoringCase(title));
+
+        button.click();
     }
 
     private void checkTitle(String title) {
