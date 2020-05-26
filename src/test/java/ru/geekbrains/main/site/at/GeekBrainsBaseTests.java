@@ -37,12 +37,7 @@ public class GeekBrainsBaseTests {
 
 
     public String getUrl(String path) {
-
-        if (path.charAt(0) != '/') {
-            return BASE_URL + "/" + path;
-        } else {
-            return BASE_URL + path;
-        }
+        return BASE_URL + path;
     }
 
     protected WebElement getFirstElementBy(By by) {
