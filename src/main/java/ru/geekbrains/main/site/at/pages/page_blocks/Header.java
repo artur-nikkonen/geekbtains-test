@@ -7,8 +7,7 @@ import ru.geekbrains.main.site.at.pages.base.BasePageCreator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Header extends BasePageCreator {
     public static final String rootXPath = "//*[@id='top-menu']";
@@ -38,16 +37,12 @@ public class Header extends BasePageCreator {
     }
 
     public Header checkMainElementsExist() {
-
-        //не знаю как красиво проверить сущетвование элемента
-        //решил просто взять имена тегов. Если элемента нет, то вылетит ошибка
-
         assertAll(
-                () -> assertDoesNotThrow(() -> title.getTagName()),
-                () -> assertDoesNotThrow(() -> showSearchFormButton.getTagName()),
-                () -> assertDoesNotThrow(() -> loginButton.getTagName()),
-                () -> assertDoesNotThrow(() -> registerButton.getTagName()),
-                () -> assertDoesNotThrow(() -> searchInput.getTagName())
+                () -> assertTrue(() -> title.isDisplayed()),
+                () -> assertTrue(() -> showSearchFormButton.isDisplayed()),
+                () -> assertTrue(() -> loginButton.isDisplayed()),
+                () -> assertTrue(() -> registerButton.isDisplayed()),
+                () -> assertTrue(() -> !searchInput.isDisplayed()) // по умолчанию не отображается
         );
 
         return this;

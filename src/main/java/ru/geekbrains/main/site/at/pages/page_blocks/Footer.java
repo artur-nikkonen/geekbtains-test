@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import ru.geekbrains.main.site.at.pages.base.BasePageCreator;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class Footer extends BasePageCreator {
@@ -68,27 +68,23 @@ public class Footer extends BasePageCreator {
     }
 
     public Footer checkMainElementsExist() {
-
-        //не знаю как красиво проверить сущетвование элемента
-        //решил просто взять имена тегов. Если элемента нет, то вылетит ошибка
-
         assertAll(
-                () -> assertDoesNotThrow(() -> facebookLink.getTagName()),
-                () -> assertDoesNotThrow(() -> vkLink.getTagName()),
-                () -> assertDoesNotThrow(() -> instagramLink.getTagName()),
-                () -> assertDoesNotThrow(() -> youtubeLink.getTagName()),
-                () -> assertDoesNotThrow(() -> telegramLink.getTagName()),
+                () -> assertTrue(() -> facebookLink.isDisplayed()),
+                () -> assertTrue(() -> vkLink.isDisplayed()),
+                () -> assertTrue(() -> instagramLink.isDisplayed()),
+                () -> assertTrue(() -> youtubeLink.isDisplayed()),
+                () -> assertTrue(() -> telegramLink.isDisplayed()),
 
-                () -> assertDoesNotThrow(() -> feedbackLink.getTagName()),
-                () -> assertDoesNotThrow(() -> helpLink.getTagName()),
-                () -> assertDoesNotThrow(() -> aboutLink.getTagName()),
-                () -> assertDoesNotThrow(() -> licenseLink.getTagName()),
-                () -> assertDoesNotThrow(() -> careerLink.getTagName()),
-                () -> assertDoesNotThrow(() -> forbusinessLink.getTagName()),
+                () -> assertTrue(() -> feedbackLink.isDisplayed()),
+                () -> assertTrue(() -> helpLink.isDisplayed()),
+                () -> assertTrue(() -> aboutLink.isDisplayed()),
+                () -> assertTrue(() -> licenseLink.isDisplayed()),
+                () -> assertTrue(() -> careerLink.isDisplayed()),
+                () -> assertTrue(() -> forbusinessLink.isDisplayed()),
 
-                () -> assertDoesNotThrow(() -> copyright.getTagName()),
-                () -> assertDoesNotThrow(() -> phone.getTagName()),
-                () -> assertDoesNotThrow(() -> skolkovo.getTagName())
+                () -> assertTrue(() -> copyright.isDisplayed()),
+                () -> assertTrue(() -> phone.isDisplayed()),
+                () -> assertTrue(() -> skolkovo.isDisplayed())
         );
 
         return this;
