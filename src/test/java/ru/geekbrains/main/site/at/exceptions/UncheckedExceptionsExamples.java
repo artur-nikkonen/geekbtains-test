@@ -1,8 +1,6 @@
 package ru.geekbrains.main.site.at.exceptions;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileReader;
 
 public class UncheckedExceptionsExamples {
 
@@ -92,7 +90,7 @@ public class UncheckedExceptionsExamples {
         }
     }
 
-    public static void nullPointerExceptionExample(){
+    public static void nullPointerExceptionExample() {
         try {
             Point p = null;
             int x = p.x;
@@ -101,7 +99,7 @@ public class UncheckedExceptionsExamples {
         }
     }
 
-    public static void numberFormatExceptionExample(){
+    public static void numberFormatExceptionExample() {
         try {
             String str = "100.0.0";
             Double d = Double.parseDouble(str);
