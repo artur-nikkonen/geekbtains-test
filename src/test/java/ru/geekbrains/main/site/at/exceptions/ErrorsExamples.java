@@ -18,7 +18,7 @@ public class ErrorsExamples {
         System.out.println("StackOverflowError. Глубина стека с 2 переменными int: " + calcDepthInt2(0));
         System.out.println("StackOverflowError. Глубина стека с 2 переменными int: " + calcDepthInt2(0));
 
-        //Вывод: интересно но не предсказуемо)))
+        //Вывод: интересно но непредсказуемо)))
 
         System.out.println("OutOfMemoryError. Было выделено: " + calcMaxMemory() * 4 + " байт");
     }
