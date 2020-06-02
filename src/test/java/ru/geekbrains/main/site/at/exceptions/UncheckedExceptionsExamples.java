@@ -1,6 +1,8 @@
 package ru.geekbrains.main.site.at.exceptions;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileReader;
 
 public class UncheckedExceptionsExamples {
 
