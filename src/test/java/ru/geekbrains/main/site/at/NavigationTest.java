@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -18,12 +19,14 @@ public class NavigationTest extends GeekBrainsBaseTest {
     }
 
     @BeforeEach
+    @Step("Open page '/creer'")
     void setUp() {
         driver.get(getUrl("/career"));
     }
 
     @ParameterizedTest
     @MethodSource("getTitles")
+    @Step("Test navigation button '{title}'")
     public void checkNavButtons(String title) {
 
         new LeftMenu(driver)

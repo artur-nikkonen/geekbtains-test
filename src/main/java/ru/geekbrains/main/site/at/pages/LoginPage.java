@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +21,7 @@ public class LoginPage extends BasePageCreator {
         super(driver);
     }
 
+    @Step("Login to site")
     public LoginPage login(String login, String password) {
         loginInput.sendKeys(login);
         passwordInput.sendKeys(password);

@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class ContentPage extends BasePageCreator {
         return this;
     }
 
+    @Step("Close popup window")
     public ContentPage closePopup() {
         try {
             //Ждем пока появятся 2 картинки кнопок закрывания окна
