@@ -1,4 +1,4 @@
-package ru.geekbrains.main.site.at.exceptions;
+package examples.exceptions;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package ru.geekbrains.main.site.at.exceptions;
+package examples.exceptions;
 
 public class OtherExamples {
     public static void main(String[] args) {
