@@ -35,7 +35,7 @@ public class LoginTest extends GeekBrainsBaseTest {
 
 
                 .getCoursesFilter()
-                //.clickInput("Бесплатные") //курсы больше не бесплатные)))
+                .clickInput("Бесплатные")
                 .clickInput("Тестирование")
 
                 .getCoursesPage()
