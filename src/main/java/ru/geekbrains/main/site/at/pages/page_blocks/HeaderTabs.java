@@ -40,7 +40,7 @@ public class HeaderTabs extends BasePageCreator {
         return checkTab(name, minValue, Integer.MAX_VALUE);
     }
 
-    @Step("Verify that tab '{name}' has number >={minValue} and <={maxValue}")
+    @Step("Verify tab '{name}'")
     public HeaderTabs checkTab(String name, int minValue, int maxValue) {
 
         String text = tabs.getText(name);
@@ -49,12 +49,16 @@ public class HeaderTabs extends BasePageCreator {
         int number = Integer.parseInt(parts[1]);
         String tabTitle = parts[0];
 
+        checkTabParts(tabTitle, name, number,  minValue, maxValue);
+
+        return this;
+    }
+    @Step("Verify that tab title = '{name}'; And number ({number}) in [{minValue};{maxValue}]")
+    private void checkTabParts(String tabTitle, String name, int number,  int minValue, int maxValue){
         assertThat(tabTitle, equalTo(name));
         assertThat(number, allOf(
                 greaterThanOrEqualTo(minValue),
                 lessThanOrEqualTo(maxValue)
         ));
-
-        return this;
     }
 }
