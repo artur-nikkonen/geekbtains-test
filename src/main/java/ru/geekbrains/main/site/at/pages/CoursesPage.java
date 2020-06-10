@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,7 @@ public class CoursesPage extends BasePageCreator {
         super(driver);
     }
 
+    @Step("Verify that '{title}' is displayed")
     public CoursesPage checkCardDisplayed(String title) {
 
         for (WebElement card : coursesCards) {

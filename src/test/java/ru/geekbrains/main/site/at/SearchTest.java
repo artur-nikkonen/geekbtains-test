@@ -1,15 +1,21 @@
 package ru.geekbrains.main.site.at;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Test;
 import ru.geekbrains.main.site.at.base.GeekBrainsBaseTest;
 import ru.geekbrains.main.site.at.pages.ContentPage;
 
 public class SearchTest extends GeekBrainsBaseTest {
 
+    @Step("Open page '/creer'")
+    public void openStartPage(){
+        driver.get(getUrl("/courses"));
+    }
     @Test
+    @Step("Test 'Java' blocks")
     public void searchJavaBlocksTest() {
 
-        driver.get(getUrl("/courses"));
+        openStartPage();
 
         new ContentPage(driver)
                 .closePopup()

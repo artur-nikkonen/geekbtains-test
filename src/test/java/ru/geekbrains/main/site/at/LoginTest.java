@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.geekbrains.main.site.at.base.GeekBrainsBaseTest;
@@ -8,6 +9,7 @@ import ru.geekbrains.main.site.at.pages.LoginPage;
 public class LoginTest extends GeekBrainsBaseTest {
 
     @BeforeEach
+    @Step("Open page '/login'")
     void setUp() {
         driver.get(getUrl("/login"));
     }
@@ -30,6 +32,7 @@ public class LoginTest extends GeekBrainsBaseTest {
 
                 .getCoursesNavLinks()
                 .clickLink("Курсы")
+
 
                 .getCoursesFilter()
                 .clickInput("Бесплатные")

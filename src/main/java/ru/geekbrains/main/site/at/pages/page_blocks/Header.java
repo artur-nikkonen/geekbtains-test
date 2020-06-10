@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages.page_blocks;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,6 +37,7 @@ public class Header extends BasePageCreator {
         super(driver);
     }
 
+    @Step("Verify that all header elements are displayed")
     public Header checkMainElementsExist() {
         assertAll(
                 () -> assertTrue(() -> title.isDisplayed()),
@@ -48,16 +50,19 @@ public class Header extends BasePageCreator {
         return this;
     }
 
+    @Step("Verify that the title is '{expected}'")
     public Header checkTitle(String expected) {
         assertThat(expected, equalToIgnoringCase(title.getText()));
         return this;
     }
 
+    @Step("Click search button to show search input")
     public Header showSearch() {
         showSearchFormButton.click();
         return this;
     }
 
+    @Step("Print '{text}' to search input")
     public Header inputSearch(String text) {
         searchInput.sendKeys(text);
         return this;

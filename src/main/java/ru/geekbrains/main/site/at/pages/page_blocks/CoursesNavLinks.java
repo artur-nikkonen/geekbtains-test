@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages.page_blocks;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +23,7 @@ public class CoursesNavLinks extends BasePageCreator {
         super(driver);
     }
 
+    @Step("Click link '{name}' ")
     public CoursesNavLinks clickLink(String name) {
 
         switch (name) {

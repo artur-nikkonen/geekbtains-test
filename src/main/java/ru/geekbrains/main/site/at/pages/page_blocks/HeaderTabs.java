@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages.page_blocks;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,6 +29,7 @@ public class HeaderTabs extends BasePageCreator {
         tabs.add("Компании", "companies");
     }
 
+    @Step("Wait while tabs loaded")
     public HeaderTabs WaitTabs() {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("ul.search-page-tabs")));
@@ -38,6 +40,7 @@ public class HeaderTabs extends BasePageCreator {
         return checkTab(name, minValue, Integer.MAX_VALUE);
     }
 
+    @Step("Verify tab '{name}'")
     public HeaderTabs checkTab(String name, int minValue, int maxValue) {
 
         String text = tabs.getText(name);
@@ -46,12 +49,16 @@ public class HeaderTabs extends BasePageCreator {
         int number = Integer.parseInt(parts[1]);
         String tabTitle = parts[0];
 
+        checkTabParts(tabTitle, name, number,  minValue, maxValue);
+
+        return this;
+    }
+    @Step("Verify that tab title = '{name}'; And number ({number}) in [{minValue};{maxValue}]")
+    private void checkTabParts(String tabTitle, String name, int number,  int minValue, int maxValue){
         assertThat(tabTitle, equalTo(name));
         assertThat(number, allOf(
                 greaterThanOrEqualTo(minValue),
                 lessThanOrEqualTo(maxValue)
         ));
-
-        return this;
     }
 }

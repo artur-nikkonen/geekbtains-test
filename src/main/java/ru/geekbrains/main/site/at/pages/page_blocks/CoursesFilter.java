@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages.page_blocks;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import ru.geekbrains.main.site.at.pages.base.BaseElementsList;
 import ru.geekbrains.main.site.at.pages.base.BasePageCreator;
@@ -29,6 +30,7 @@ public class CoursesFilter extends BasePageCreator {
         inputs.add("Киберспорт", "esport");
     }
 
+    @Step("Click input '{name}' ")
     public CoursesFilter clickInput(String name) {
         inputs.click(name);
         return this;

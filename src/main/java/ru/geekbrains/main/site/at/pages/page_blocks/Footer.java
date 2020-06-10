@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages.page_blocks;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -67,6 +68,7 @@ public class Footer extends BasePageCreator {
         super(driver);
     }
 
+    @Step("Verify that all footer elements are displayed")
     public Footer checkMainElementsExist() {
         assertAll(
                 () -> assertTrue(() -> facebookLink.isDisplayed()),
