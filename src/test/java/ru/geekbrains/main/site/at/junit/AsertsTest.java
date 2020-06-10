@@ -1,11 +1,13 @@
 package ru.geekbrains.main.site.at.junit;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Disabled
 public class AsertsTest {
     @Test
     public void allAsserts() {
